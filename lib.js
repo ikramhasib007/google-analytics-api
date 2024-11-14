@@ -3,6 +3,7 @@ const { BetaAnalyticsDataClient } = require("@google-analytics/data").v1beta;
 const analyticsDataClient = new BetaAnalyticsDataClient();
 
 const propertyId = process.env.PROPERTY_ID;
+if (!propertyId) throw Error('propertyId is required!')
 
 let googleAnalyticsApi = class {
   getAnalyticsData = async (startDate = "", endDate = "") => {
